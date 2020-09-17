@@ -1,13 +1,8 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import { Divider, Row, Col, Input, Menu, Dropdown } from 'antd';
 import 'antd/dist/antd.css';
 import { DownOutlined } from '@ant-design/icons';
-
-const divStyle = {
-    marginLeft:'300px',
-    marginRight: '300px',
-    marginTop: '100px'
-}
+import AsyncSelect from "react-select/async";
 
 const inputStyle = {
     backgroundColor: 'pink',
@@ -24,7 +19,7 @@ const inputStyle3 = {
 
 const divinpStyle = {
     border: '1px solid black',
-    padding: '30px'
+    padding: '0.4rem'
 }
 
 const divinp2style = {
@@ -102,14 +97,47 @@ const menu = (
     </Menu>
 );
 
+const colourOptions = [
+  { label: "red" },
+  { label: "yellow" },
+  { label: "black" },
+];
+const filterColors = (inputValue: string) => {
+  return colourOptions.filter((i: { label: string }) =>
+    i.label.toLowerCase().includes(inputValue.toLowerCase())
+  );
+};
+const loadOptions = (inputValue: string, callback: (arg0: any) => void) => {
+  setTimeout(() => {
+    callback(filterColors(inputValue));
+  }, 1000);
+};
+
+
 const Form: FC<{}> = () => {
+
+  const [inputValue, setInputValue] = useState<string>("");
+  const handleInputChange = (newValue: string) => {
+    const inputValue = newValue.replace(/\W/g, "");
+    setInputValue(inputValue);
+    return inputValue;
+  };
+
     return (
-      <div style={divStyle}>
+      <div>
         <Row>
           <Col span={12}>
             <div style={divinpStyle}>
               Seller
-              <Input placeholder="Basic usage" style={inputStyle} />
+              {/* <Input placeholder="Basic usage" style={inputStyle} /> */}
+              <div style={{maxWidth: "26rem", paddingLeft: "0.4rem"}}>
+                <AsyncSelect
+                    cacheOptions
+                    loadOptions={loadOptions}
+                    defaultOptions
+                    onInputChange={handleInputChange}
+                />
+            </div>
             </div>
             <div style={divinpStyle}>
               Buyer

@@ -1,13 +1,13 @@
 import React from 'react';
 import Form from './components/Form';
-import logo from './logo.svg';
 import './App.css';
+import NewForm from './components/NewForm';
 
 function App() {
   return (
     <div className="App">
-
-      <Form />
+      {/* <Form /> */}
+      <NewForm />
     </div>
   );
 }

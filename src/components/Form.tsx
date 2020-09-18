@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Row, Col, Input, Menu } from "antd";
+import { Row, Col, Input, Menu, Modal } from "antd";
 import "antd/dist/antd.css";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import AsyncSelect from "react-select/async";
@@ -42,9 +42,7 @@ const menu = (
 );
 
 const colourOptions = [
-  { label: "red" },
-  { label: "yellow" },
-  { label: "black" },
+  { label: "Create Contact" }
 ];
 
 const filterColors = (inputValue: string) => {
@@ -65,6 +63,7 @@ const Form: FC<{}> = () => {
   const [value, setValue] = useState<string>("");
   const [startDate, setStartDate] = useState(new Date());
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [createContact, setCreateContact] = useState(false);
 
   const onEditorStateChange = (editorState: React.SetStateAction<EditorState>) => {
     setEditorState(editorState);
@@ -83,6 +82,10 @@ const Form: FC<{}> = () => {
         break;
     }
   };
+
+  const handleCreateContact = () => {
+    setCreateContact(true)
+  }
 
   const handleChange = (date: Date) => {
     setStartDate(date);
@@ -121,6 +124,86 @@ const Form: FC<{}> = () => {
           </span>
         )}
       </div>
+
+      <Modal
+        title="Fill form"
+        centered
+        visible={createContact}
+        onOk={() => setCreateContact(false)}
+        onCancel={() => setCreateContact(false)}
+        width={700}
+      >
+        <Row>
+          <Col span={6}>Company Name</Col>
+          <Col span={18}>
+            <Input size="large" placeholder="Company"/>
+          </Col>
+          <br />
+        </Row>
+        {/* <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+          <br /> */}
+        <Row>
+          <Col span={6}>Primary person</Col>
+          <Col span={6}>
+            <Input size="large" placeholder="First Name" />
+          </Col>
+          <Col span={6}>
+            <Input size="large" placeholder="Last Name" />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}>Email Address</Col>
+          <Col span={18}>
+            <Input size="large" placeholder="Email" />
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span={6}>Street Address</Col>
+          <Col span={18}>
+            <Input size="large" placeholder="Address" />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}></Col>
+          <Col span={18}>
+            <Input size="large" placeholder="" />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}></Col>
+          <Col span={18}>
+            <Input size="large" placeholder="City" />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}></Col>
+          <Col span={18}>
+            <Row>
+              <Col span={9}>
+                <Input size="large" placeholder="Postal/ZIP Code" />
+              </Col>
+              <Col span={9}>
+                <Input size="large" placeholder="Country" />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}>Contact Info:</Col>
+          <Col span={18}>
+            <Row>
+              <Col span={9}>
+                <Input size="large" placeholder="Telephone" />
+              </Col>
+              <Col span={9}>
+                <Input size="large" placeholder="fax" />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Modal>
+
       <Row>
         <Col span={12}>
           <div className="document-layout__section">
@@ -130,7 +213,7 @@ const Form: FC<{}> = () => {
                 cacheOptions
                 loadOptions={loadOptions}
                 defaultOptions
-                onInputChange={handleInputChange}
+                onInputChange={handleCreateContact}
               />
             </div>
           </div>

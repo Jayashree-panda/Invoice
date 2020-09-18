@@ -131,7 +131,7 @@ const Form: FC<{}> = () => {
   };
 
   return (
-    <div>
+    <div className="document-edit-view">
       <div style={{ textAlign: "center" }}>
         {editHeading ? (
           <div>
@@ -423,9 +423,26 @@ const Form: FC<{}> = () => {
                   options: ["inline", "list", "textAlign"],
                   inline: {
                     options: ["bold", "italic", "underline"],
+                    bold: { className: "demo-option-custom" },
+                    italic: { className: "demo-option-custom" },
+                    underline: { className: "demo-option-custom" },
                   },
                   list: {
                     options: ["unordered", "ordered"],
+                    unordered: { className: "demo-option-custom" },
+                    ordered: { className: "demo-option-custom" },
+                  },
+                  textAlign: {
+                    left: { className: "demo-option-custom" },
+                    center: {
+                      className: "demo-option-custom",
+                    },
+                    right: {
+                      className: "demo-option-custom",
+                    },
+                    justify: {
+                      className: "demo-option-custom",
+                    },
                   },
                 }}
                 onEditorStateChange={onEditorStateChange}
@@ -535,7 +552,27 @@ const Form: FC<{}> = () => {
           </Row>
         </div>
       </Row>
-
+      <Row>
+        <div className="document-layout__section">
+          <Row>
+            <Col span={12}>
+              <label className="document-edit-block__label--consignment document-edit-block--right">
+                Consignment Total
+              </label>
+            </Col>
+            <Col span={3}>
+              <label className="document-edit-block__label--consignment_total_amount document-edit-block--right">
+                0
+              </label>
+            </Col>
+            <Col span={9}>
+              <label className="document-edit-block__label--consignment_total_amount document-edit-block--right">
+                0.0
+              </label>
+            </Col>
+          </Row>
+        </div>
+      </Row>
       <Row>
         <Col span={12}>
           <div className="document-layout__section">
@@ -553,9 +590,26 @@ const Form: FC<{}> = () => {
                   options: ["inline", "list", "textAlign"],
                   inline: {
                     options: ["bold", "italic", "underline"],
+                    bold: { className: "demo-option-custom" },
+                    italic: { className: "demo-option-custom" },
+                    underline: { className: "demo-option-custom" },
                   },
                   list: {
                     options: ["unordered", "ordered"],
+                    unordered: { className: "demo-option-custom" },
+                    ordered: { className: "demo-option-custom" },
+                  },
+                  textAlign: {
+                    left: { className: "demo-option-custom" },
+                    center: {
+                      className: "demo-option-custom",
+                    },
+                    right: {
+                      className: "demo-option-custom",
+                    },
+                    justify: {
+                      className: "demo-option-custom",
+                    },
                   },
                 }}
                 onEditorStateChange={onEditorStateChange}

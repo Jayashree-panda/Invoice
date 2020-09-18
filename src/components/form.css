@@ -1,3 +1,7 @@
+.document-edit-view {
+  width: 65rem !important;
+}
+
 .document-edit-block__content {
   position: relative;
   box-sizing: border-box;
@@ -11,14 +15,14 @@
 }
 
 .document-edit-block {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    font-family: Inter,Arial,sans-serif;
-    font-size: .875rem;
-    font-weight: 400;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .document-edit-block__label {
@@ -33,236 +37,255 @@
   font-size: 0.8rem;
 }
 
+.document-edit-block__label--consignment {
+  font-weight: 400;
+  color: black;
+  font-size: 0.8rem;
+  margin: 0.8rem;
+}
+
+.document-edit-block__label--consignment_total_amount {
+  font-weight: 500;
+  font-size: 1rem;
+  color: black;
+  margin: 0.8rem;
+}
+
 .document-layout__section {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e1e4ea;
-    box-sizing: border-box;
-    position: relative;
-    margin-bottom: -1px;
-    margin-right: -1px;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e1e4ea;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: -1px;
+  margin-right: -1px;
+  height: 100%;
+  width: 100%;
 }
 
 .document-edit-block {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    font-family: Inter,Arial,sans-serif;
-    font-size: .875rem;
-    font-weight: 400;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .document-edit-block--right {
-    text-align: right;
-    float: right;
+  text-align: right;
+  float: right;
 }
 
 .document-edit-block__input--right {
-    text-align: right;
-    float: right;
+  text-align: right;
+  float: right;
 }
 
 .document-edit-block__page-number {
-    margin: 0 .2rem;
+  margin: 0 0.2rem;
 }
 
 .drop-down_content-lg {
-    max-width: 26rem;
+  max-width: 26rem;
 }
 
 .drop-down_content-md {
-    max-width: 13rem;
+  max-width: 13rem;
 }
 
 .document-edit-block__layout {
-    height: 100%;
-    width: 100%;
-    justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .document-edit-block__layout-block {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    width: 100%;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .block--width-015 {
-    min-width: 15%;
-    max-width: 15%;
+  min-width: 15%;
+  max-width: 15%;
 }
 
 .block--width-030 {
-    min-width: 30%;
-    max-width: 30%;
+  min-width: 30%;
+  max-width: 30%;
 }
 
 .block--width-075 {
-    min-width: 75%;
-    max-width: 75%;
+  min-width: 75%;
+  max-width: 75%;
 }
 
 .block--width-025 {
-    min-width: 25%;
-    max-width: 25%;
+  min-width: 25%;
+  max-width: 25%;
 }
 
 .document-edit-block__total {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 100%;
-    font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  font-weight: 500;
 }
 
 .document-edit-block__total-symbol {
-    margin: 0 .2rem;
-    font-size: 1rem;
-    font-weight: 500;
+  margin: 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .document-edit-block__input {
-    display: block;
-    box-sizing: border-box;
-    font-size: .875rem;
-    font-weight: 500;
-    padding: .75rem .5rem;
-    width: 100%;
-    height: 100%;
-    min-height: 2.5rem;
-    flex: 1 1 auto;
-    border: none;
-    background-color: #f5f6f8;
-    border-radius: 6px;
-    outline: none;
-    color: #031b4e;
-    font-family: Inter,Arial,sans-serif;
+  display: block;
+  box-sizing: border-box;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 0.5rem;
+  width: 100%;
+  height: 100%;
+  min-height: 2.5rem;
+  flex: 1 1 auto;
+  border: none;
+  background-color: #f5f6f8;
+  border-radius: 6px;
+  outline: none;
+  color: #031b4e;
+  font-family: Inter, Arial, sans-serif;
 }
 
 .document-edit-block__input:disabled {
-    border-bottom: none;
-    background: #fff;
-    pointer-events: none;
-    cursor: not-allowed;
+  border-bottom: none;
+  background: #fff;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .document-edit-block--inline {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .document-edit-block--inline * {
-    margin: 0 .4rem 0 0;
+  margin: 0 0.4rem 0 0;
 }
 
 .document-edit-block__textfield {
-    border-radius: 6px;
-    font-family: Inter,Arial,sans-serif;
-    color: #031b4e;
+  border-radius: 6px;
+  font-family: Inter, Arial, sans-serif;
+  color: #031b4e;
 }
 
 .react-datepicker__input-container {
-    width: auto;
+  width: auto;
 }
 
 .document-layout__span {
-    text-align: center;
-    padding: 0.4rem;
-    color: black;
-    font-size: 0.8rem;
+  text-align: center;
+  padding: 0.4rem;
+  color: black;
+  font-size: 0.8rem;
 }
 
 .document-edit-block__amount {
-    padding: 0.7rem;
-    color: black;
-    font-weight: 500;
+  padding: 0.7rem;
+  color: black;
+  font-weight: 500;
 }
 
 /* Select  */
 .document-edit-block__select {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 /* Date Picker */
 .react-datepicker-popper {
-    z-index: 2;
+  z-index: 2;
 }
 
 .document-edit-block__datefield {
-    border: 1px solid #f5f6f8;
-    border-radius: 6px;
+  border: 1px solid #f5f6f8;
+  border-radius: 6px;
 }
 
 .document-edit-block__datefield:focus {
-    border: 1px solid #1890ff;
-    border-radius: 6px;
+  border: 1px solid #1890ff;
+  border-radius: 6px;
 }
 
 /* Text Editor */
 .document-edit-block__rich-text-editor-wrapper {
-        position: relative;
-    border: none;
-    background-color: #f5f6f8;
-    border-radius: 6px;
-    outline: none;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
+  position: relative;
+  border: none;
+  background-color: #f5f6f8;
+  border-radius: 6px;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .document-edit-block__rich-text-editor-toolbar {
-    display: flex;
-    opacity: 0;
-    flex: 0 0 auto;
-    top: -1.5rem;
-    box-sizing: border-box;
-    background: #fff;
-    border: 1px solid rgba(3,27,78,.07);
-    box-shadow: 0 10px 12px -3px rgba(3,27,78,.07);
-    border-radius: .25rem;
-    position: absolute;
-    right: 0;
-    transition: all .2s cubic-bezier(.075,.82,.165,1);
+  display: flex;
+  opacity: 0;
+  flex: 0 0 auto;
+  top: -1.5rem;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid rgba(3, 27, 78, 0.07);
+  box-shadow: 0 10px 12px -3px rgba(3, 27, 78, 0.07);
+  border-radius: 0.25rem;
+  position: absolute;
+  right: 0;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .document-edit-block__rich-text-editor-editor {
-    height: 100%;
-    overflow: hidden;
-    padding: .4rem;
-    flex: 1 1 auto;
-    cursor: text;
-    border: none;
-    background-color: #f5f6f8;
-    border-radius: 6px;
-    outline: none;
+  height: 100%;
+  overflow: hidden;
+  padding: 0.4rem;
+  flex: 1 1 auto;
+  cursor: text;
+  border: none;
+  background-color: #f5f6f8;
+  border-radius: 6px;
+  outline: none;
 }
 
 .document-edit-block__rich-text-editor-toolbar--active {
-    opacity: 1;
-    top: -2.5rem;
+  opacity: 1;
+  top: -2.5rem;
 }
 
 .document-edit-block__rich-text-editor-toolbar {
-        opacity: 1;
-    top: -2.5rem;
-    display: flex;
-    flex: 0 0 auto;
-    box-sizing: border-box;
-    background: #fff;
-    border: 1px solid rgba(3,27,78,.07);
-    box-shadow: 0 10px 12px -3px rgba(3,27,78,.07);
-    border-radius: .25rem;
-    position: absolute;
-    right: 0;
-    transition: all .2s cubic-bezier(.075,.82,.165,1);
+  opacity: 1;
+  top: -2.5rem;
+  display: flex;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid rgba(3, 27, 78, 0.07);
+  box-shadow: 0 10px 12px -3px rgba(3, 27, 78, 0.07);
+  border-radius: 0.25rem;
+  position: absolute;
+  right: 0;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.demo-option-custom {
+  border: none;
+}
+
+/** Custom Style */
 textarea:focus {
   background-color: #fff;
 }

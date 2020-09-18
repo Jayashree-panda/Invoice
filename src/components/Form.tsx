@@ -8,10 +8,12 @@ import TextArea from "antd/lib/input/TextArea";
 import DatePicker from "react-datepicker";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState } from "draft-js";
+import { Select } from "antd";
+
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./form.css";
-
+const { Option } = Select;
 const menu = (
   <Menu>
     <Menu.Item>
@@ -42,7 +44,9 @@ const menu = (
 );
 
 const colourOptions = [
-  { label: "Create Contact" }
+  { label: "Create Contact" },
+  { label: "yellow" },
+  { label: "black" },
 ];
 
 const filterColors = (inputValue: string) => {
@@ -65,6 +69,41 @@ const Form: FC<{}> = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [createContact, setCreateContact] = useState(false);
 
+  const customStyles = {
+    control: (base: any, state: { isFocused: any }) => ({
+      ...base,
+      background: "#f5f6f8",
+      // match with the menu
+      borderRadius: "6px",
+      width: "100%",
+      height: "100%",
+      // Overwrittes the different states of border
+      borderColor: state.isFocused ? "#f5f6f8" : "#f5f6f8",
+      // Removes weird border around container
+      boxShadow: state.isFocused ? null : null,
+      "&:hover": {
+        // Overwrittes the different states of border
+        borderColor: state.isFocused ? "#1890ff" : "#f5f6f8",
+        background: state.isFocused ? "#ffffff" : "#f5f6f8",
+      },
+    }),
+    indicatorSeparator: () => ({ display: "none" }),
+    dropdownIndicator: () => ({ display: "none" }),
+    menu: (base: any) => ({
+      ...base,
+      // override border radius to match the box
+      borderRadius: '6px',
+      // kill the gap
+      // marginTop: 0,
+    }),
+    menuList: (base: any, state: { isFocused: any }) => ({
+      ...base,
+      // kill the white space on first and last option
+      padding: 0,
+      color: "#000"
+    }),
+  };
+  
   const onEditorStateChange = (editorState: React.SetStateAction<EditorState>) => {
     setEditorState(editorState);
   }
@@ -84,7 +123,7 @@ const Form: FC<{}> = () => {
   };
 
   const handleCreateContact = () => {
-    setCreateContact(true)
+    setCreateContact(false)
   }
 
   const handleChange = (date: Date) => {
@@ -215,6 +254,7 @@ const Form: FC<{}> = () => {
                 defaultOptions
                 onInputChange={handleCreateContact}
                 isClearable={true}
+                styles={customStyles}
               />
             </div>
           </div>
@@ -275,6 +315,7 @@ const Form: FC<{}> = () => {
                 loadOptions={loadOptions}
                 defaultOptions
                 onInputChange={handleInputChange}
+                styles={customStyles}
               />
             </div>
           </div>
@@ -300,6 +341,7 @@ const Form: FC<{}> = () => {
                       loadOptions={loadOptions}
                       defaultOptions
                       onInputChange={handleInputChange}
+                      styles={customStyles}
                     />
                   </div>
                 </div>
@@ -317,6 +359,7 @@ const Form: FC<{}> = () => {
                       loadOptions={loadOptions}
                       defaultOptions
                       onInputChange={handleInputChange}
+                      styles={customStyles}
                     />
                   </div>
                 </div>
@@ -337,6 +380,7 @@ const Form: FC<{}> = () => {
                       loadOptions={loadOptions}
                       defaultOptions
                       onInputChange={handleInputChange}
+                      styles={customStyles}
                     />
                   </div>
                 </div>
@@ -355,6 +399,7 @@ const Form: FC<{}> = () => {
                       loadOptions={loadOptions}
                       defaultOptions
                       onInputChange={handleInputChange}
+                      styles={customStyles}
                     />
                   </div>
                 </div>
@@ -389,6 +434,108 @@ const Form: FC<{}> = () => {
           </div>
         </Col>
       </Row>
+      <Row>
+        <Col span={4}>
+          <div className="document-layout__section">
+            <span className="document-layout__span">Product Code</span>
+          </div>
+        </Col>
+        <Col span={8}>
+          <div className="document-layout__section">
+            <span className="document-layout__span">Description of Goods</span>
+          </div>
+        </Col>
+        <Col span={3}>
+          <div className="document-layout__section">
+            <span className="document-layout__span">Unit Quantity</span>
+          </div>
+        </Col>
+        <Col span={3}>
+          <div className="document-layout__section">
+            <span className="document-layout__span">Unit Type</span>
+          </div>
+        </Col>
+        <Col span={3}>
+          <div className="document-layout__section">
+            <span className="document-layout__span">Price</span>
+          </div>
+        </Col>
+        <Col span={3}>
+          <div className="document-layout__section">
+            <span className="document-layout__span">Amount</span>
+          </div>
+        </Col>
+      </Row>
+      <Row style={{ minHeight: "12rem" }}>
+        <div
+          className="document-layout__section"
+          style={{ minHeight: "12rem" }}
+        >
+          <Row>
+            <Col span={4}>
+              <div className="document-edit-block">
+                <div className="document-edit-block__content">
+                  <AsyncSelect
+                    cacheOptions
+                    loadOptions={loadOptions}
+                    defaultOptions
+                    onInputChange={handleCreateContact}
+                    isClearable={true}
+                    styles={customStyles}
+                    className="document-edit-block__select"
+                  />
+                </div>
+              </div>
+            </Col>
+            <Col span={8}>
+              <div className="document-edit-block">
+                <div className="document-edit-block__content">
+                  <TextArea
+                    value={value}
+                    className="document-edit-block__input document-edit-block__textfield"
+                    autoSize={{ minRows: 1, maxRows: 5 }}
+                  />
+                </div>
+              </div>
+            </Col>
+            <Col span={3}>
+              <div className="document-edit-block">
+                <div className="document-edit-block__content">
+                  <Input
+                    className="document-edit-block__input document-edit-block__textfield document-edit-block__input--right"
+                    value={0}
+                  />
+                </div>
+              </div>
+            </Col>
+            <Col span={3}>
+              <div className="document-edit-block">
+                <div className="document-edit-block__content">
+                  <Input className="document-edit-block__input document-edit-block__textfield" />
+                </div>
+              </div>
+            </Col>
+            <Col span={3}>
+              <div className="document-edit-block">
+                <div className="document-edit-block__content">
+                  <Input
+                    className="document-edit-block__input document-edit-block__textfield document-edit-block__input--right"
+                    value={0.0}
+                  />
+                </div>
+              </div>
+            </Col>
+            <Col span={3}>
+              <div className="document-edit-block  document-edit-block--right">
+                <label className="document-edit-block__label document-edit-block__amount">
+                  0.00
+                </label>
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </Row>
+
       <Row>
         <Col span={12}>
           <div className="document-layout__section">
@@ -449,9 +596,19 @@ const Form: FC<{}> = () => {
                   </label>
                   <div className="document-edit-block--inline">
                     <div className="block--width-015">
-                      <Input
+                      {/* <Input
                         className="document-edit-block__input document-edit-block__textfield"
                         placeholder="-"
+                      /> */}
+                      <AsyncSelect
+                        placeholder="-"
+                        cacheOptions
+                        loadOptions={loadOptions}
+                        defaultOptions
+                        onInputChange={handleCreateContact}
+                        isClearable={true}
+                        styles={customStyles}
+                        className="document-edit-block__select"
                       />
                     </div>
                     <div>
@@ -554,7 +711,8 @@ const Form: FC<{}> = () => {
                   <div className="document-edit-block--inline">
                     <TextArea
                       value={value}
-                      placeholder="Controlled autosize"
+                      placeholder="Add Signature"
+                      className="document-edit-block__input document-edit-block__textfield"
                       autoSize={{ minRows: 3, maxRows: 5 }}
                     />
                   </div>

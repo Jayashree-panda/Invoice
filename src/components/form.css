@@ -61,6 +61,11 @@
     float: right;
 }
 
+.document-edit-block__input--right {
+    text-align: right;
+    float: right;
+}
+
 .document-edit-block__page-number {
     margin: 0 .2rem;
 }
@@ -106,7 +111,6 @@
     min-width: 25%;
     max-width: 25%;
 }
-
 
 .document-edit-block__total {
     display: flex;
@@ -166,6 +170,40 @@
     width: auto;
 }
 
+.document-layout__span {
+    text-align: center;
+    padding: 0.4rem;
+    color: black;
+    font-size: 0.8rem;
+}
+
+.document-edit-block__amount {
+    padding: 0.7rem;
+    color: black;
+    font-weight: 500;
+}
+
+/* Select  */
+.document-edit-block__select {
+    height: 100%;
+    width: 100%;
+}
+
+/* Date Picker */
+.react-datepicker-popper {
+    z-index: 2;
+}
+
+.document-edit-block__datefield {
+    border: 1px solid #f5f6f8;
+    border-radius: 6px;
+}
+
+.document-edit-block__datefield:focus {
+    border: 1px solid #1890ff;
+    border-radius: 6px;
+}
+
 /* Text Editor */
 .document-edit-block__rich-text-editor-wrapper {
         position: relative;
@@ -223,4 +261,12 @@
     position: absolute;
     right: 0;
     transition: all .2s cubic-bezier(.075,.82,.165,1);
+}
+
+textarea:focus {
+  background-color: #fff;
+}
+
+input:focus {
+  background-color: #fff;
 }

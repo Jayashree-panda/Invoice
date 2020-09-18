@@ -1,81 +1,15 @@
 import React, { FC, useState } from "react";
-import { Divider, Row, Col, Input, Menu, Dropdown } from "antd";
+import { Row, Col, Input, Menu } from "antd";
 import "antd/dist/antd.css";
-import { CheckOutlined, CloseOutlined, DownOutlined } from "@ant-design/icons";
+import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import AsyncSelect from "react-select/async";
 import Title from "antd/lib/typography/Title";
 import TextArea from "antd/lib/input/TextArea";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import "./form.css";
 
-const inputStyle = {
-  backgroundColor: "pink",
-  padding: "15px",
-};
-
-const inputStyle2 = {};
-
-const inputStyle3 = {
-  padding: "20px",
-};
-
-const divinpStyle = {
-  border: "1px solid black",
-  padding: "0.4rem",
-  height: "100%",
-  width: "100%",
-};
-
-const divinp2style = {
-  border: "1px solid black",
-  padding: "10px",
-  height: "100%",
-};
-
-const divinp3style = {
-  border: "1px solid black",
-  padding: "4px",
-  height: "100%",
-};
-
-const paraStyle1 = {
-  border: "1px solid black",
-  height: "100%",
-  width: "100%",
-};
-
-const paraStyle2 = {};
-const vacant = {
-  padding: "68px",
-  border: "1px solid black",
-};
-
-const divStyle2 = {};
-
-const divStyle3 = {
-  border: "1px solid black",
-  padding: "10px",
-};
-
-const divStyle4 = {
-  border: "1px solid black",
-  padding: "7px",
-  paddingBottom: "170px",
-};
-
-const divStyle5 = {
-  padding: "32px",
-  border: "1px solid black",
-};
-
-const inputStyle4 = {
-  border: "1px solid black",
-  padding: "10px",
-};
-const button1 = {};
-
-const button2 = {};
 const menu = (
   <Menu>
     <Menu.Item>
@@ -110,6 +44,7 @@ const colourOptions = [
   { label: "yellow" },
   { label: "black" },
 ];
+
 const filterColors = (inputValue: string) => {
   return colourOptions.filter((i: { label: string }) =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
@@ -181,9 +116,9 @@ const Form: FC<{}> = () => {
       </div>
       <Row>
         <Col span={12}>
-          <div style={divinpStyle}>
-            Seller
-            <div style={{ maxWidth: "26rem" }}>
+          <div className="document-layout__section">
+            <label className="document-edit-block__label">Seller</label>
+            <div className="document-edit-block__content drop-down_content-lg">
               <AsyncSelect
                 cacheOptions
                 loadOptions={loadOptions}
@@ -195,34 +130,42 @@ const Form: FC<{}> = () => {
         </Col>
         <Col span={12}>
           <Row>
-            <div style={paraStyle1}>
-              <div style={{ textAlign: "end" }}>
-                <p style={paraStyle2}>Pages</p>
-                <p style={paraStyle2}>1 of 1</p>
+            <div className="document-layout__section">
+              <div className="document-edit-block  document-edit-block--right">
+                <label className="document-edit-block__label">Pages</label>
+                <div className="document-edit-block__content">
+                  <div className="document-edit-block__page-number">1 of 1</div>
+                </div>
               </div>
             </div>
           </Row>
           <Row>
             <Col span={12}>
-              <div style={divinp3style}>
-                Quote Number
-                <Input placeholder="Basic usage" />
+              <div className="document-edit-block document-layout__section">
+                <label className="document-edit-block__label">
+                  Quote Number
+                </label>
+                <div className="document-edit-block__content">
+                  <Input placeholder="Basic usage" />
+                </div>
               </div>
             </Col>
             <Col span={12}>
-              <div style={divinp3style}>
-                Date <br />
-                <DatePicker selected={startDate} onChange={handleChange} />
+              <div className="document-edit-block document-layout__section">
+                <label className="document-edit-block__label">Date</label>
+                <div className="document-edit-block__content">
+                  <DatePicker selected={startDate} onChange={handleChange} />
+                </div>
               </div>
             </Col>
           </Row>
         </Col>
       </Row>
-      <Row style={{    height: '9rem'}}>
+      <Row style={{ height: "9rem" }}>
         <Col span={12}>
-          <div style={divinpStyle}>
-            Buyer
-            <div style={{ maxWidth: "26rem" }}>
+          <div className="document-layout__section">
+            <label className="document-edit-block__label">Buyer</label>
+            <div className="document-edit-block__content drop-down_content-lg">
               <AsyncSelect
                 cacheOptions
                 loadOptions={loadOptions}
@@ -233,123 +176,189 @@ const Form: FC<{}> = () => {
           </div>
         </Col>
         <Col span={12}>
-          <div style={paraStyle1}></div>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={12}>
-          <Row>
-            <Col span={12}>
-              <div style={divinp2style}>
-                Method of Dispatch
-                <div style={{ maxWidth: "13rem" }}>
-                  <AsyncSelect
-                    cacheOptions
-                    loadOptions={loadOptions}
-                    defaultOptions
-                    onInputChange={handleInputChange}
-                  />
-                </div>
-              </div>
-            </Col>
-            <Col span={12}>
-              <div style={divinp2style}>
-                Type of Shipment
-                <div style={{ maxWidth: "13rem" }}>
-                  <AsyncSelect
-                    cacheOptions
-                    loadOptions={loadOptions}
-                    defaultOptions
-                    onInputChange={handleInputChange}
-                  />
-                </div>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={12}>
-              <div style={divinp2style}>
-                Port of Loading
-                <div style={{ maxWidth: "13rem" }}>
-                  <AsyncSelect
-                    cacheOptions
-                    loadOptions={loadOptions}
-                    defaultOptions
-                    onInputChange={handleInputChange}
-                  />
-                </div>
-              </div>
-            </Col>
-            <Col span={12}>
-              <div style={divinp2style}>
-                Port of Discharge
-                <div style={{ maxWidth: "13rem" }}>
-                  <AsyncSelect
-                    cacheOptions
-                    loadOptions={loadOptions}
-                    defaultOptions
-                    onInputChange={handleInputChange}
-                  />
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-        <Col span={12}>
-          <div style={divinpStyle}>
-            Terms / Method of Payment
-            <TextArea
-              value={value}
-              placeholder="Controlled autosize"
-              autoSize={{ minRows: 3, maxRows: 5 }}
-            />
+          <div className="document-layout__section">
+            <div className="document-edit-block__content drop-down_content-lg">
+            </div>
           </div>
         </Col>
       </Row>
       <Row>
         <Col span={12}>
-          <div style={divinpStyle}>
-            Additional Information
-            <TextArea
-              value={value}
-              placeholder="Controlled autosize"
-              autoSize={{ minRows: 10, maxRows: 15 }}
-            />
+          <Row>
+            <Col span={12}>
+              <div className="document-layout__section">
+                <div className="document-edit-block">
+                  <label className="document-edit-block__label">
+                    Method of Dispatch
+                  </label>
+                  <div className="document-edit-block__content drop-down_content-md">
+                    <AsyncSelect
+                      cacheOptions
+                      loadOptions={loadOptions}
+                      defaultOptions
+                      onInputChange={handleInputChange}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col span={12}>
+              <div className="document-layout__section">
+                <div className="document-edit-block">
+                  <label className="document-edit-block__label">
+                    Type of Shipment
+                  </label>
+                  <div className="document-edit-block__content drop-down_content-md">
+                    <AsyncSelect
+                      cacheOptions
+                      loadOptions={loadOptions}
+                      defaultOptions
+                      onInputChange={handleInputChange}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12}>
+              <div className="document-layout__section">
+                <div className="document-edit-block">
+                  <label className="document-edit-block__label">
+                    Port of Loading
+                  </label>
+                  <div className="document-edit-block__content drop-down_content-md">
+                    <AsyncSelect
+                      cacheOptions
+                      loadOptions={loadOptions}
+                      defaultOptions
+                      onInputChange={handleInputChange}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col span={12}>
+              <div className="document-layout__section">
+                <div className="document-edit-block">
+                  <label className="document-edit-block__label">
+                    Port of Discharge
+                  </label>
+                  <div className="document-edit-block__content drop-down_content-md">
+                    <AsyncSelect
+                      cacheOptions
+                      loadOptions={loadOptions}
+                      defaultOptions
+                      onInputChange={handleInputChange}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Col>
+        <Col span={12}>
+          <div className="document-layout__section">
+            <label className="document-edit-block__label">
+              Terms / Method of Payment
+            </label>
+            <div className="document-edit-block__content">
+              <TextArea
+                value={value}
+                placeholder="Controlled autosize"
+                autoSize={{ minRows: 3, maxRows: 5 }}
+              />
+            </div>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={12}>
+          <div className="document-layout__section">
+            <label className="document-edit-block__label">
+              Additional Information
+            </label>
+            <div className="document-edit-block__content">
+              <TextArea
+                value={value}
+                placeholder="Controlled autosize"
+                autoSize={{ minRows: 10, maxRows: 15 }}
+              />
+            </div>
           </div>
         </Col>
         <Col span={12}>
           <Row>
-            <div style={divinpStyle}>
+            <div className="document-layout__section">
               <Input placeholder="Basic usage" />
               <Input placeholder="Basic usage" />
             </div>
           </Row>
           <Row>
-            <div style={divinpStyle}>
-              Invoice Total (Incoterms® 2020)
-              <Input placeholder="Basic usage" />
+            <div className="document-layout__section">
+              <div className="document-edit-block">
+                <label className="document-edit-block__label">
+                  Invoice Total (Incoterms&#174; 2020)
+                </label>
+                <div
+                  className="document-edit-block__layout"
+                  style={{ display: "flex", flexDirection: "row" }}
+                >
+                  <div className="document-edit-block__layout-block block--width-015">
+                    <div className="document-edit-block">
+                      <div className="document-edit-block__content">
+                        <Input placeholder="Basic usage" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="document-edit-block__layout-block">
+                    <div className="document-edit-block">
+                      <div className="document-edit-block__content">
+                        <Input placeholder="Basic usage" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="document-edit-block__layout-block block--width-015">
+                    <div className="document-edit-block">
+                      <div className="document-edit-block__content">
+                        <Input placeholder="Basic usage" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="document-edit-block__layout-block block--width-030">
+                    <div className="document-edit-block">
+                      <div className="document-edit-block__content">
+                        <div className="document-edit-block__total">
+                          <span className="document-edit-block__total-symbol"></span>
+                          <input type="text" className="document-edit-block__input" disabled value="0.00"></input>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </Row>
           <Row>
-            <div style={divinpStyle}>
+            <div className="document-layout__section">
               Place and Date of Issue
               <Input placeholder="Basic usage" />
             </div>
           </Row>
           <Row>
-            <div style={divinpStyle}>
+            <div className="document-layout__section">
               Signatory Company
               <Input placeholder="Basic usage" />
             </div>
           </Row>
           <Row>
-            <div style={divinpStyle}>
+            <div className="document-layout__section">
               Name of Authorized Signatory
               <Input placeholder="Basic usage" />
             </div>
           </Row>
           <Row>
-            <div style={divinpStyle}>
+            <div className="document-layout__section">
               Signature
               <TextArea
                 value={value}

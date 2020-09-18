@@ -1,14 +1,15 @@
 import React from 'react';
-import Form from './components/Form';
 import './App.css';
 import NewForm from './components/NewForm';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Form /> */}
-      <NewForm />
-    </div>
+    <Router>
+        <Switch>
+          <Route exact={true} path="/" component={NewForm} />
+        </Switch>
+      </Router>
   );
 }
 

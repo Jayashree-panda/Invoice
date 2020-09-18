@@ -1,14 +1,13 @@
 import React, { FC } from 'react'
-import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import "./index.css";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout } from "antd";
 import Form from './Form';
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 const NewForm: FC<{}> = () => {
   return (
-    <Layout className="layout">
+    <Layout className="layout" style={{ background: "#f5f6f8" }}>
       <Content style={{ padding: "5rem 0rem", alignSelf: "center" }}>
         <div className="site-layout-content">
           <Form />

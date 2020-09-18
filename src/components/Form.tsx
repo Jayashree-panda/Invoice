@@ -136,7 +136,7 @@ const Form: FC<{}> = () => {
         <Row>
           <Col span={6}>Company Name</Col>
           <Col span={18}>
-            <Input size="large" placeholder="Company"/>
+            <Input size="large" placeholder="Company" />
           </Col>
           <br />
         </Row>
@@ -214,6 +214,7 @@ const Form: FC<{}> = () => {
                 loadOptions={loadOptions}
                 defaultOptions
                 onInputChange={handleCreateContact}
+                isClearable={true}
               />
             </div>
           </div>
@@ -231,12 +232,19 @@ const Form: FC<{}> = () => {
           </Row>
           <Row>
             <Col span={12}>
-              <div className="document-edit-block document-layout__section">
-                <label className="document-edit-block__label">
-                  Quote Number
-                </label>
-                <div className="document-edit-block__content">
-                  <Input placeholder="Basic usage" />
+              <div className="document-layout__section">
+                <div className="document-edit-block">
+                  <label className="document-edit-block__label">
+                    Quote Number
+                  </label>
+                  <div className="document-edit-block__content">
+                    <div className="document-edit-block--inline">
+                      <Input
+                        className="document-edit-block__input document-edit-block__textfield"
+                        // value="QUO-00001"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </Col>
@@ -263,6 +271,7 @@ const Form: FC<{}> = () => {
             <div className="document-edit-block__content drop-down_content-lg">
               <AsyncSelect
                 cacheOptions
+                isClearable={true}
                 loadOptions={loadOptions}
                 defaultOptions
                 onInputChange={handleInputChange}
@@ -324,6 +333,7 @@ const Form: FC<{}> = () => {
                   <div className="document-edit-block__content drop-down_content-md">
                     <AsyncSelect
                       cacheOptions
+                      isClearable={true}
                       loadOptions={loadOptions}
                       defaultOptions
                       onInputChange={handleInputChange}
@@ -341,6 +351,7 @@ const Form: FC<{}> = () => {
                   <div className="document-edit-block__content drop-down_content-md">
                     <AsyncSelect
                       cacheOptions
+                      isClearable={true}
                       loadOptions={loadOptions}
                       defaultOptions
                       onInputChange={handleInputChange}
@@ -409,20 +420,21 @@ const Form: FC<{}> = () => {
           <Row>
             <div className="document-layout__section">
               <div className="document-edit-block">
-                <div className="document-edit-block__content document-edit-block__content--underline">
+                <div className="document-edit-block__content">
                   <div className="document-edit-block--inline">
-                    <input
-                      className="document-edit-block__input document-edit-block__textfield"
-                      type="text"
-                      placeholder="Place of issue"
-                      value=""
-                    ></input>
-                    <input
-                      className="document-edit-block__input document-edit-block__textfield"
-                      type="text"
-                      placeholder="Place of issue"
-                      value=""
-                    ></input>
+                    <div className="block--width-075">
+                      <Input
+                        className="document-edit-block__input document-edit-block__textfield"
+                        placeholder="Add additional charges or discount"
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        className="document-edit-block__input document-edit-block__textfield"
+                        placeholder=""
+                        value="0.00"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -431,47 +443,38 @@ const Form: FC<{}> = () => {
           <Row>
             <div className="document-layout__section">
               <div className="document-edit-block">
-                <div className="document-edit-block__content document-edit-block__content--underline">
+                <div className="document-edit-block__content">
                   <label className="document-edit-block__label">
                     Invoice Total (Incoterms&#174; 2020)
                   </label>
                   <div className="document-edit-block--inline">
                     <div className="block--width-015">
-                      <input
+                      <Input
                         className="document-edit-block__input document-edit-block__textfield"
-                        type="text"
                         placeholder="-"
-                        value=""
-                      ></input>
+                      />
                     </div>
                     <div>
-                      <input
+                      <Input
                         className="document-edit-block__input document-edit-block__textfield"
-                        type="text"
                         placeholder="Place"
-                        value=""
-                      ></input>
+                      />
                     </div>
                     <div className="block--width-015">
-                      <input
+                      <Input
                         className="document-edit-block__input document-edit-block__textfield"
-                        type="text"
                         placeholder="-"
-                        value=""
-                      ></input>
+                      />
                     </div>
                     <div className="block--width-030">
                       <div className="document-edit-block">
-                        <div className="document-edit-block__content">
-                          <div className="document-edit-block__total">
-                            <span className="document-edit-block__total-symbol"></span>
-                            <input
-                              type="text"
-                              className="document-edit-block__input"
-                              disabled
-                              value="0.00"
-                            ></input>
-                          </div>
+                        <div className="document-edit-block__total">
+                          <span className="document-edit-block__total-symbol"></span>
+                          <Input
+                            className="document-edit-block__input"
+                            disabled
+                            value="0.00"
+                          />
                         </div>
                       </div>
                     </div>
@@ -483,17 +486,15 @@ const Form: FC<{}> = () => {
           <Row>
             <div className="document-layout__section">
               <div className="document-edit-block">
-                <div className="document-edit-block__content document-edit-block__content--underline">
+                <div className="document-edit-block__content">
                   <label className="document-edit-block__label2">
                     Place and Date of Issue
                   </label>
                   <div className="document-edit-block--inline">
-                    <input
+                    <Input
                       className="document-edit-block__input document-edit-block__textfield"
-                      type="text"
                       placeholder="Place of issue"
-                      value=""
-                    ></input>
+                    />
                     <DatePicker
                       selected={startDate}
                       dateFormat="dd MMM yyyy"
@@ -508,17 +509,15 @@ const Form: FC<{}> = () => {
           <Row>
             <div className="document-layout__section">
               <div className="document-edit-block">
-                <div className="document-edit-block__content document-edit-block__content--underline">
+                <div className="document-edit-block__content">
                   <label className="document-edit-block__label2">
                     Signatory Company
                   </label>
                   <div className="document-edit-block--inline">
-                    <input
+                    <Input
                       className="document-edit-block__input document-edit-block__textfield"
-                      type="text"
                       placeholder="Place of issue"
-                      value=""
-                    ></input>
+                    />
                   </div>
                 </div>
               </div>
@@ -527,23 +526,19 @@ const Form: FC<{}> = () => {
           <Row>
             <div className="document-layout__section">
               <div className="document-edit-block">
-                <div className="document-edit-block__content document-edit-block__content--underline">
+                <div className="document-edit-block__content">
                   <label className="document-edit-block__label2">
                     Name of Authorized Signatory
                   </label>
                   <div className="document-edit-block--inline">
-                    <input
+                    <Input
                       className="document-edit-block__input document-edit-block__textfield"
-                      type="text"
                       placeholder="First Name"
-                      value=""
-                    ></input>
-                    <input
+                    />
+                    <Input
                       className="document-edit-block__input document-edit-block__textfield"
-                      type="text"
                       placeholder="Last Name"
-                      value=""
-                    ></input>
+                    />
                   </div>
                 </div>
               </div>
@@ -552,7 +547,7 @@ const Form: FC<{}> = () => {
           <Row>
             <div className="document-layout__section">
               <div className="document-edit-block">
-                <div className="document-edit-block__content document-edit-block__content--underline">
+                <div className="document-edit-block__content">
                   <label className="document-edit-block__label2">
                     Signature
                   </label>

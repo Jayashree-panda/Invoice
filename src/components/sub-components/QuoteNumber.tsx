@@ -4,7 +4,7 @@ import React, { FC, useState } from "react";
 import DatePicker from "react-datepicker";
 
 /** Custom CSS */
-import "../form.css";
+import "../styles/form.css";
 import "antd/dist/antd.css";
 import "react-datepicker/dist/react-datepicker.css";
 

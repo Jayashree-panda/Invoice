@@ -4,7 +4,7 @@ import React, { FC, useState } from "react";
 import AsyncSelect from "react-select/async";
 
 /** Custom CSS */
-import "../form.css";
+import "../styles/form.css";
 import "antd/dist/antd.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { asyncSelectStyles } from "../styles/Select";

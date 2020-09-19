@@ -3,7 +3,7 @@ import React, { FC, useState } from "react";
 import AsyncSelect from "react-select/async";
 
 /** Custom Styles */
-import "../form.css";
+import "../styles/form.css";
 import { asyncSelectStyles } from "../styles/Select";
 
 const colourOptions = [

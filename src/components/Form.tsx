@@ -3,7 +3,7 @@ import React, { FC, useState } from "react";
 import { Row, Col } from "antd";
 
 /** Custom Styles */
-import "./form.css";
+import "./styles/form.css";
 import "antd/dist/antd.css";
 
 /** Sub Components */

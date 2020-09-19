@@ -4,7 +4,7 @@ import { Editor } from "react-draft-wysiwyg";
 import { EditorState } from "draft-js";
 
 /** Custom Styles */
-import "../form.css";
+import "../styles/form.css";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdditionalInformation: FC<{}> = () => {

@@ -5,7 +5,7 @@ import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import Title from "antd/lib/typography/Title";
 
 /** Custom Styles */
-import "../form.css";
+import "../styles/form.css";
 import "antd/dist/antd.css";
 
 const Heading: FC<{}> = () => {

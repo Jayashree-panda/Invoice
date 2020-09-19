@@ -4,7 +4,7 @@ import { Row, Col, Input, Modal } from "antd";
 
 /** Custom Styles */
 import "antd/dist/antd.css";
-import "../form.css";
+import "../styles/form.css";
 
 interface CreateContactProps {
   openCreate: boolean,

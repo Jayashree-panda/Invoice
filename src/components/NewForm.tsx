@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "antd/dist/antd.css";
-import "./index.css";
+import "./styles/index.css";
 import { Layout } from "antd";
 import Form from "./Form";
 const { Content } = Layout;

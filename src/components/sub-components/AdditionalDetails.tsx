@@ -6,7 +6,7 @@ import AsyncSelect from "react-select/async";
 import TextArea from "antd/lib/input/TextArea";
 
 /** Custom CSS */
-import "../form.css";
+import "../styles/form.css";
 import "antd/dist/antd.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { asyncSelectStyles } from "../styles/Select";

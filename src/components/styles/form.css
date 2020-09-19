@@ -120,14 +120,19 @@
   max-width: 30%;
 }
 
-.block--width-075 {
-  min-width: 75%;
-  max-width: 75%;
+.block--width-070 {
+  min-width: 70%;
+  max-width: 70%;
 }
 
 .block--width-025 {
   min-width: 25%;
   max-width: 25%;
+}
+
+.block--width-020 {
+  min-width: 20%;
+  max-width: 20%;
 }
 
 .document-edit-block__total {
@@ -316,6 +321,88 @@ document-edit-block__rich-text-editor-editor:hover {
 
 .public-DraftStyleDefault-block {
   margin: 0px 0 !important;
+}
+
+/** Product Table Styling */
+.document-edit-block__table-button {
+    margin: .4rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.btn--2 {
+    padding: .5rem .75rem;
+    max-height: 2rem;
+    font-size: 14px;
+    font-size: .875rem;
+    font-family: Inter,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    line-height: 1rem;
+    vertical-align: middle;
+    line-height: .875rem;
+}
+
+.btn--secondary-blue {
+    color: #3370eb;
+    background-color: rgba(51,112,235,.07);
+    fill: #3370eb;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: .375rem;
+    white-space: nowrap;
+    display: flex;
+    transition: background-color 50ms ease-in-out,color 50ms ease-in-out,box-shadow .1s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: 500;
+}
+
+.btn--2.btn--icon-left .icon {
+    margin-right: .375rem;
+}
+
+.btn .icon {
+    transition: fill .1s ease-in-out;
+    width: .875rem;
+    height: .875rem;
+}
+
+/** Delete Icon */
+.document-edit-block__table-content-row-action {
+    min-height: 2rem;
+    min-width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .4rem;
+    background: #fff;
+    border: 1px solid rgba(3,27,78,.2);
+    box-shadow: 0 10px 22px -10px rgba(3,27,78,.07);
+}
+
+.document-edit-block__table-content-row-action--danger svg {
+    height: 1rem;
+    width: 1rem;
+    fill: #d1858e;
+}
+
+.icon--delete {
+      margin-right: 0px;
+
+}
+
+/** Percent Icon */
+.ml--0_5 {
+    margin-left: .5rem;
 }
 
 /** Custom Style */

@@ -1,0 +1,33 @@
+.document-edit-block--heading{
+        width: 24rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 14px;
+    padding: 0px 0px;
+}
+
+.btn--2.btn--icon {
+    padding: .5rem;
+}
+.editable-wrapper__btn--save {
+    margin-right: .25rem;
+    fill: #3bbd89;
+}
+
+.btn--icon {
+    padding: .5rem;
+    background: transparent;
+    fill: rgba(3,27,78,.75)!important;
+    border-radius: 100%;
+    min-width: 2rem;
+    min-height: 2rem;
+    transition: all 75ms ease-in-out;
+}
+
+.editable-wrapper--header .editable-wrapper__btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+}

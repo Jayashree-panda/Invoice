@@ -8,6 +8,8 @@ import TextArea from "antd/lib/input/TextArea";
 import "../styles/form.css";
 import "antd/dist/antd.css";
 import { asyncSelectStyles } from "../styles/Select";
+import AddLine from "../Icons/AddLine";
+import Delete from "../Icons/Delete";
 
 const colourOptions = [
   { label: "Create Contact" },
@@ -93,12 +95,13 @@ const ProductListTable: FC<{}> = () => {
                 <Col span={4}>
                   <div className="document-edit-block">
                     <div className="document-edit-block__content document-edit-block--inline">
-                      <button
-                        className="mr10"
+                      <div
+                        title="Delete"
+                        className="document-edit-block__table-content-row-action document-edit-block__table-content-row-action--danger"
                         onClick={() => handleRemoveClick(i)}
                       >
-                        R
-                      </button>
+                        <Delete />
+                      </div>
                       <AsyncSelect
                         cacheOptions
                         loadOptions={loadOptions}
@@ -159,9 +162,18 @@ const ProductListTable: FC<{}> = () => {
               </Row>
             );
           })}
-          <div className="btn-box">
-            <button onClick={handleAddClick}>Add line</button>
-          </div>
+          <Row>
+            <div className="document-edit-block__table-button">
+              <button
+                type="button"
+                className="btn btn--2 btn--secondary-blue btn--icon-left"
+                onClick={handleAddClick}
+              >
+                <AddLine />
+                Add Line
+              </button>
+            </div>
+          </Row>
         </div>
       </Row>
       <Row>

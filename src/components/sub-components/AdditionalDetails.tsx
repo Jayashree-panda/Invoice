@@ -10,6 +10,9 @@ import "../styles/form.css";
 import "antd/dist/antd.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { asyncSelectStyles } from "../styles/Select";
+import AddLine from "../Icons/AddLine";
+import Delete from "../Icons/Delete";
+import Percent from "../Icons/Percent";
 
 const colourOptions = [
   { label: "Create Contact" },
@@ -33,6 +36,7 @@ const AdditionalDetails: FC<{}> = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [value, setValue] = useState<string>("");
   const [inputList, setInputList] = useState([{ firstName: "", lastName: "" }]);
+  const [showTaxRow, setShowTaxRow] = useState<boolean>(false)
 
   const handleChange = (date: Date) => {
     setStartDate(date);
@@ -55,24 +59,60 @@ const AdditionalDetails: FC<{}> = () => {
     setInputList(list);
   };
 
+  const handleTaxRow = (val: boolean) => {
+    setShowTaxRow(val)
+  }
+
   return (
     <>
       <Row>
         <div className="document-layout__section">
+          {showTaxRow ? (
+            <div className="document-edit-block">
+              <div className="document-edit-block__content">
+                <div className="document-edit-block--inline">
+                  <div
+                    title="Delete"
+                    onClick={() => handleTaxRow(false)}
+                    className="document-edit-block__table-content-row-action document-edit-block__table-content-row-action--danger"
+                  >
+                    <Delete />
+                  </div>
+                  <div className="block--width-025">
+                    <Input
+                      className="document-edit-block__input document-edit-block__textfield"
+                      placeholder="Add additional charges or discount"
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      className="document-edit-block__input document-edit-block__textfield"
+                      placeholder=""
+                      value="0.00"
+                    />
+                  </div>
+                  <div className="document-edit-block  document-edit-block--right block--width-020">
+                    <label className="document-edit-block__label document-edit-block__amount">
+                      0.00
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
           {inputList.map((x: any, i: any) => {
             return (
               <div className="document-edit-block">
                 <div className="document-edit-block__content">
                   <div className="document-edit-block--inline">
-                    <div>
-                      <button
-                        className="mr10"
-                        onClick={() => handleRemoveClick(i)}
-                      >
-                        R
-                      </button>
+                    <div
+                      title="Delete"
+                      onClick={() => handleRemoveClick(i)}
+                      className="document-edit-block__table-content-row-action document-edit-block__table-content-row-action--danger"
+                    >
+                      <Delete />
                     </div>
-                    <div className="block--width-075">
+                    <div className="block--width-070">
                       <Input
                         className="document-edit-block__input document-edit-block__textfield"
                         placeholder="Add additional charges or discount"
@@ -90,9 +130,28 @@ const AdditionalDetails: FC<{}> = () => {
               </div>
             );
           })}
-          <div className="btn-box">
-            <button onClick={handleAddClick}>Add line</button>
-          </div>
+          <Row>
+            <div className="document-edit-block__table-button">
+              <button
+                type="button"
+                className="btn btn--2 btn--secondary-blue btn--icon-left"
+                onClick={handleAddClick}
+              >
+                <AddLine />
+                Add Line
+              </button>
+              {showTaxRow ? null : (
+                <button
+                  type="button"
+                  className="btn btn--2 btn--secondary-blue btn--icon-left ml--0_5 "
+                  onClick={() => handleTaxRow(true)}
+                >
+                  <Percent />
+                  Add Taxes
+                </button>
+              )}
+            </div>
+          </Row>
         </div>
       </Row>
       <Row>
@@ -104,10 +163,6 @@ const AdditionalDetails: FC<{}> = () => {
               </label>
               <div className="document-edit-block--inline">
                 <div className="block--width-015">
-                  {/* <Input
-                        className="document-edit-block__input document-edit-block__textfield"
-                        placeholder="-"
-                      /> */}
                   <AsyncSelect
                     placeholder="-"
                     cacheOptions

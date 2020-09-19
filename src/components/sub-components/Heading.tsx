@@ -6,6 +6,7 @@ import Title from "antd/lib/typography/Title";
 
 /** Custom Styles */
 import "../styles/form.css";
+import "../styles/heading.css";
 import "antd/dist/antd.css";
 
 const Heading: FC<{}> = () => {
@@ -23,28 +24,54 @@ const Heading: FC<{}> = () => {
   return (
     <div style={{ textAlign: "center" }}>
       {editHeading ? (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Input
+            className="document-edit-block--heading"
             defaultValue={quotationHeading}
-            style={{ width: "15rem", marginBottom: "1rem" }}
             onChange={(e) => setQuotationHeading(e.target.value)}
           />
-          <CheckOutlined
-            onClick={() => handleToggle("heading")}
+          <div
+            className="editable-wrapper__btn-wrapper"
             style={{
-              marginTop: "1.5rem",
-              marginLeft: "0.5rem",
-              cursor: "pointer",
+              paddingBottom: "1rem",
+              display: "flex",
+              flexDirection: "row",
             }}
-          />
-          <CloseOutlined
-            onClick={() => handleToggle("heading")}
-            style={{
-              marginTop: "1.5rem",
-              marginLeft: "0.5rem",
-              cursor: "pointer",
-            }}
-          />
+          >
+            <button
+              type="button"
+              className="btn btn--2 btn--icon editable-wrapper__btn editable-wrapper__btn--save"
+            >
+              <CheckOutlined
+                onClick={() => handleToggle("heading")}
+                style={{
+                  // width: "2rem",
+                  // height: "1.2rem",
+                  cursor: "pointer",
+                }}
+              />
+            </button>
+            <button
+              type="button"
+              className="btn btn--2 btn--icon editable-wrapper__btn editable-wrapper__btn--save"
+            >
+              <CloseOutlined
+                onClick={() => handleToggle("heading")}
+                style={{
+                  // width: "3rem",
+                  // height: "1.5rem",
+                  cursor: "pointer",
+                }}
+              />
+            </button>
+          </div>
         </div>
       ) : (
         <span onClick={() => handleToggle("heading")}>

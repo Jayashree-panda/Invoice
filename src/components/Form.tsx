@@ -22,7 +22,6 @@ const Form: FC<{}> = () => {
   const [createContact, setCreateContact] = useState(false);
 
   const handleCreateContact = (cond: boolean) => {
-    console.log("here");
     setCreateContact(cond);
   };
   return (

@@ -24,6 +24,7 @@ const AdditionalInformation: FC<{}> = () => {
       <div className="document-edit-block__content">
         <Editor
           editorState={editorState}
+          editorStyle={{ lineHeight: "5%" }}
           toolbarOnFocus
           toolbarClassName="document-edit-block__rich-text-editor-toolbar"
           wrapperClassName="document-edit-block__rich-text-editor-wrapper"

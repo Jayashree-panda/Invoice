@@ -26,16 +26,15 @@ const loadOptions = (inputValue: string, callback: (arg0: any) => void) => {
   }, 1000);
 };
 
-
 const MultipleMethods: FC<{}> = () => {
   const [inputValue, setInputValue] = useState<string>("");
 
-      const handleInputChange = (newValue: string) => {
-        console.log(inputValue)
-        const inputValue2 = newValue.replace(/\W/g, "");
-        setInputValue(inputValue2);
-        return inputValue2;
-      };
+  const handleInputChange = (newValue: string) => {
+    console.log(inputValue);
+    const inputValue2 = newValue.replace(/\W/g, "");
+    setInputValue(inputValue2);
+    return inputValue2;
+  };
 
   return (
     <>
@@ -121,4 +120,4 @@ const MultipleMethods: FC<{}> = () => {
   );
 };
 
-export default MultipleMethods
+export default MultipleMethods;

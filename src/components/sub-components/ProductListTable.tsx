@@ -29,11 +29,23 @@ const loadOptions = (inputValue: string, callback: (arg0: any) => void) => {
 const ProductListTable: FC<{}> = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [value, setValue] = useState<string>("");
+  const [inputList, setInputList] = useState([{ firstName: "", lastName: "" }]);
 
   const handleInputChange = (newValue: string) => {
     const inputValue = newValue.replace(/\W/g, "");
     setInputValue(inputValue);
     return inputValue;
+  };
+
+  const handleAddClick = () => {
+    setInputList([...inputList, { firstName: "", lastName: "" }]);
+  };
+
+  // handle click event of the Remove button
+  const handleRemoveClick = (index: number) => {
+    const list = [...inputList];
+    list.splice(index, 1);
+    setInputList(list);
   };
 
   return (
@@ -75,68 +87,81 @@ const ProductListTable: FC<{}> = () => {
           className="document-layout__section"
           style={{ minHeight: "12rem" }}
         >
-          <Row>
-            <Col span={4}>
-              <div className="document-edit-block">
-                <div className="document-edit-block__content">
-                  <AsyncSelect
-                    cacheOptions
-                    loadOptions={loadOptions}
-                    defaultOptions
-                    onInputChange={handleInputChange}
-                    isClearable={true}
-                    styles={asyncSelectStyles}
-                    className="document-edit-block__select"
-                  />
-                </div>
-              </div>
-            </Col>
-            <Col span={8}>
-              <div className="document-edit-block">
-                <div className="document-edit-block__content">
-                  <TextArea
-                    value={value}
-                    className="document-edit-block__input document-edit-block__textfield"
-                    autoSize={{ minRows: 1, maxRows: 5 }}
-                  />
-                </div>
-              </div>
-            </Col>
-            <Col span={3}>
-              <div className="document-edit-block">
-                <div className="document-edit-block__content">
-                  <Input
-                    className="document-edit-block__input document-edit-block__textfield document-edit-block__input--right"
-                    value={0}
-                  />
-                </div>
-              </div>
-            </Col>
-            <Col span={3}>
-              <div className="document-edit-block">
-                <div className="document-edit-block__content">
-                  <Input className="document-edit-block__input document-edit-block__textfield" />
-                </div>
-              </div>
-            </Col>
-            <Col span={3}>
-              <div className="document-edit-block">
-                <div className="document-edit-block__content">
-                  <Input
-                    className="document-edit-block__input document-edit-block__textfield document-edit-block__input--right"
-                    value={0.0}
-                  />
-                </div>
-              </div>
-            </Col>
-            <Col span={3}>
-              <div className="document-edit-block  document-edit-block--right">
-                <label className="document-edit-block__label document-edit-block__amount">
-                  0.00
-                </label>
-              </div>
-            </Col>
-          </Row>
+          {inputList.map((x, i) => {
+            return (
+              <Row>
+                <Col span={4}>
+                  <div className="document-edit-block">
+                    <div className="document-edit-block__content document-edit-block--inline">
+                      <button
+                        className="mr10"
+                        onClick={() => handleRemoveClick(i)}
+                      >
+                        R
+                      </button>
+                      <AsyncSelect
+                        cacheOptions
+                        loadOptions={loadOptions}
+                        defaultOptions
+                        onInputChange={handleInputChange}
+                        isClearable={true}
+                        styles={asyncSelectStyles}
+                        className="document-edit-block__select"
+                      />
+                    </div>
+                  </div>
+                </Col>
+                <Col span={8}>
+                  <div className="document-edit-block">
+                    <div className="document-edit-block__content">
+                      <TextArea
+                        value={value}
+                        className="document-edit-block__input document-edit-block__textfield"
+                        autoSize={{ minRows: 1, maxRows: 5 }}
+                      />
+                    </div>
+                  </div>
+                </Col>
+                <Col span={3}>
+                  <div className="document-edit-block">
+                    <div className="document-edit-block__content">
+                      <Input
+                        className="document-edit-block__input document-edit-block__textfield document-edit-block__input--right"
+                        value={0}
+                      />
+                    </div>
+                  </div>
+                </Col>
+                <Col span={3}>
+                  <div className="document-edit-block">
+                    <div className="document-edit-block__content">
+                      <Input className="document-edit-block__input document-edit-block__textfield" />
+                    </div>
+                  </div>
+                </Col>
+                <Col span={3}>
+                  <div className="document-edit-block">
+                    <div className="document-edit-block__content">
+                      <Input
+                        className="document-edit-block__input document-edit-block__textfield document-edit-block__input--right"
+                        value={0.0}
+                      />
+                    </div>
+                  </div>
+                </Col>
+                <Col span={3}>
+                  <div className="document-edit-block  document-edit-block--right">
+                    <label className="document-edit-block__label document-edit-block__amount">
+                      0.00
+                    </label>
+                  </div>
+                </Col>
+              </Row>
+            );
+          })}
+          <div className="btn-box">
+            <button onClick={handleAddClick}>Add line</button>
+          </div>
         </div>
       </Row>
       <Row>

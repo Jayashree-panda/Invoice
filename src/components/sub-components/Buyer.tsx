@@ -31,7 +31,7 @@ const Buyer: FC<{}> = () => {
     setInputValue(inputValue2);
     return inputValue2;
   };
-  
+
   return (
     <div className="document-layout__section">
       <label className="document-edit-block__label">Buyer</label>

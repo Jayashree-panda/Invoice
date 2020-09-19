@@ -23,4 +23,9 @@ export const asyncSelectStyles = {
     padding: 0,
     color: "#000",
   }),
+  option: (base: any, state: { isSelected: any; }) => ({
+    ...base,
+    // color: state.isSelected ? "yellow" : "black",
+    // backgroundColor: state.isSelected ? "green" : "white",
+  }),
 };

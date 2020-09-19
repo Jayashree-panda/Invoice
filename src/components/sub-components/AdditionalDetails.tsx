@@ -32,38 +32,66 @@ const AdditionalDetails: FC<{}> = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [startDate, setStartDate] = useState(new Date());
   const [value, setValue] = useState<string>("");
+  const [inputList, setInputList] = useState([{ firstName: "", lastName: "" }]);
 
   const handleChange = (date: Date) => {
     setStartDate(date);
   };
-console.log(inputValue)
+
   const handleInputChange = (newValue: string) => {
     const inputValue = newValue.replace(/\W/g, "");
     setInputValue(inputValue);
     return inputValue;
   };
+
+  const handleAddClick = () => {
+    setInputList([...inputList, { firstName: "", lastName: "" }]);
+  };
+
+  // handle click event of the Remove button
+  const handleRemoveClick = (index: number) => {
+    const list = [...inputList];
+    list.splice(index, 1);
+    setInputList(list);
+  };
+
   return (
     <>
       <Row>
         <div className="document-layout__section">
-          <div className="document-edit-block">
-            <div className="document-edit-block__content">
-              <div className="document-edit-block--inline">
-                <div className="block--width-075">
-                  <Input
-                    className="document-edit-block__input document-edit-block__textfield"
-                    placeholder="Add additional charges or discount"
-                  />
-                </div>
-                <div>
-                  <Input
-                    className="document-edit-block__input document-edit-block__textfield"
-                    placeholder=""
-                    value="0.00"
-                  />
+          {inputList.map((x: any, i: any) => {
+            return (
+              <div className="document-edit-block">
+                <div className="document-edit-block__content">
+                  <div className="document-edit-block--inline">
+                    <div>
+                      <button
+                        className="mr10"
+                        onClick={() => handleRemoveClick(i)}
+                      >
+                        R
+                      </button>
+                    </div>
+                    <div className="block--width-075">
+                      <Input
+                        className="document-edit-block__input document-edit-block__textfield"
+                        placeholder="Add additional charges or discount"
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        className="document-edit-block__input document-edit-block__textfield"
+                        placeholder=""
+                        value="0.00"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            );
+          })}
+          <div className="btn-box">
+            <button onClick={handleAddClick}>Add line</button>
           </div>
         </div>
       </Row>

@@ -7,7 +7,7 @@ import "../styles/form.css";
 import { asyncSelectStyles } from "../styles/Select";
 
 interface SellerProps {
-  showCreateContact: any
+  showCreateContact(x: boolean): void;
 }
 
 const colourOptions = [

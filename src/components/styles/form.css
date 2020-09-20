@@ -414,64 +414,7 @@ input:focus {
   background-color: #fff;
 }
 
-.parentElement1 {
- 
-}
 
-.child11 {
-   margin: 0.25rem;
-   
-}
-
-.child12 {
-   
-}
-.child21 {
-   margin: 0.25rem;
-}
-
-.child22 {
-   margin: 0.25rem;
-}
-.child23 {
-   margin: 0.25rem;
-}
-
-.child31 {
-   margin: 0.25rem;
-}
-
-.child32 {
-   margin: 0.25rem;
-}
-
-.child41 {
-   margin: 0.25rem;
-}
-
-.child42 {
-   margin: 0.25rem;
-}
-
-.child51 {
-   margin: 0.25rem;
-}
-
-.child61 {
-   margin: 0.25rem;
-}
-
-.child62 {
-   margin: 0.25rem;
-}
-
-.child52 {
-   margin: 0.25rem;
-}
-
-.child71 {
-   margin: 0.25rem;
-}
 
 .input-element-modal {
   display: block;
@@ -495,33 +438,26 @@ input:focus {
 .div-element-modal {
   margin:0.5rem;
 }
-.child712 {
-   margin: 0.25rem;
-}
 
-.child81 {
-   margin: 0.25rem;
-}
-
-.child811 {
-   margin: 0.25rem;
-}
-
-.child812 {
-   margin: 0.25rem;
-}
-
-.parentElement2 {
-  
-}
-
-.divElement11 {
-
-}
-
-.divElement12 {
-
-}
 .div-element-title{
   margin: 1rem;
 }
+
+.additionalInfoButton {
+  border: none;
+}
+
+.addressButton{
+  border: none;
+}
+
+.buttons {
+  border-bottom: 1px solid black;
+  opacity: 0.3;
+  padding: 1rem;
+  margin-left: 2rem;
+  margin-right:2rem;
+  margin-bottom: 2rem;
+}
+
+

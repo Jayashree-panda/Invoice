@@ -23,70 +23,161 @@ const CreateContact: FC<CreateContactProps> = ({ openCreate, closeCreate }) => {
       width={700}
     >
       <Row>
-        <Col span={6}>Company Name</Col>
-        <Col span={18}>
-          <Input size="large" placeholder="Company" />
+        <Col span={6}>
+          <div className="div-element-title">Company Name</div>
         </Col>
-        <br />
+        <Col span={18}>
+          <div className="div-element-modal">
+            <Input
+              size="large"
+              placeholder="Company"
+              className="input-element-modal"
+            />
+          </div>
+        </Col>
       </Row>
-      {/* <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+
+      {/* <Checkbox.Gr
+      oup options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
           <br /> */}
+
       <Row>
-        <Col span={6}>Primary person</Col>
         <Col span={6}>
-          <Input size="large" placeholder="First Name" />
+          <div className="div-element-title">Primary person</div>
+        </Col>
+
+        <Col span={6}>
+          <div className="div-element-modal">
+            <Input
+              size="large"
+              placeholder="First Name"
+              className="input-element-modal"
+            />
+          </div>
         </Col>
         <Col span={6}>
-          <Input size="large" placeholder="Last Name" />
-        </Col>
-      </Row>
-      <Row>
-        <Col span={6}>Email Address</Col>
-        <Col span={18}>
-          <Input size="large" placeholder="Email" />
+          <div className="div-element-modal">
+            <Input
+              size="large"
+              placeholder="Last Name"
+              className="input-element-modal"
+            />
+          </div>
         </Col>
       </Row>
 
       <Row>
-        <Col span={6}>Street Address</Col>
+        <Col span={6}>
+          <div className="div-element-title">Email Address</div>
+        </Col>
         <Col span={18}>
-          <Input size="large" placeholder="Address" />
+          <div className="div-element-modal">
+            <Input
+              size="large"
+              placeholder="Email"
+              className="input-element-modal"
+            />
+          </div>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col span={6}>
+          <div className="div-element-title">Street Address</div>
+        </Col>
+
+        <Col span={18}>
+          <div className="div-element-modal">
+            <Input
+              size="large"
+              placeholder="Address"
+              className="input-element-modal"
+            />
+          </div>
         </Col>
       </Row>
       <Row>
-        <Col span={6}></Col>
+        <Col span={6}>
+          <div className="div-element-title"></div>
+        </Col>
+
         <Col span={18}>
-          <Input size="large" placeholder="" />
+          <div className="div-element-modal">
+            <Input
+              size="large"
+              placeholder=""
+              className="input-element-modal"
+            />
+          </div>
         </Col>
       </Row>
       <Row>
-        <Col span={6}></Col>
+        <Col span={6}>
+          <div className="div-element-title"></div>
+        </Col>
         <Col span={18}>
-          <Input size="large" placeholder="City" />
+          <div className="div-element-modal">
+            <Input
+              size="large"
+              placeholder="City"
+              className="input-element-modal"
+            />
+          </div>
         </Col>
       </Row>
+
       <Row>
-        <Col span={6}></Col>
+        <Col span={6}>
+          <div className="div-element-title"></div>
+        </Col>
+
         <Col span={18}>
           <Row>
             <Col span={9}>
-              <Input size="large" placeholder="Postal/ZIP Code" />
+              <div className="div-element-modal">
+                <Input
+                  size="large"
+                  placeholder="Postal/ZIP Code"
+                  className="input-element-modal"
+                />
+              </div>
             </Col>
             <Col span={9}>
-              <Input size="large" placeholder="Country" />
+              <div className="div-element-modal">
+                <Input
+                  size="large"
+                  placeholder="Country"
+                  className="input-element-modal"
+                />
+              </div>
             </Col>
           </Row>
         </Col>
       </Row>
+
       <Row>
-        <Col span={6}>Contact Info:</Col>
+        <Col span={6}>
+          <div className="div-element-title">Contact Info:</div>
+        </Col>
         <Col span={18}>
           <Row>
             <Col span={9}>
-              <Input size="large" placeholder="Telephone" />
+              <div className="div-element-modal">
+                <Input
+                  size="large"
+                  placeholder="Telephone"
+                  className="input-element-modal"
+                />
+              </div>
             </Col>
             <Col span={9}>
-              <Input size="large" placeholder="fax" />
+              <div className="div-element-modal">
+                <Input
+                  size="large"
+                  placeholder="fax"
+                  className="input-element-modal"
+                />
+              </div>
             </Col>
           </Row>
         </Col>

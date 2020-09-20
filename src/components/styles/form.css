@@ -413,3 +413,115 @@ textarea:focus {
 input:focus {
   background-color: #fff;
 }
+
+.parentElement1 {
+ 
+}
+
+.child11 {
+   margin: 0.25rem;
+   
+}
+
+.child12 {
+   
+}
+.child21 {
+   margin: 0.25rem;
+}
+
+.child22 {
+   margin: 0.25rem;
+}
+.child23 {
+   margin: 0.25rem;
+}
+
+.child31 {
+   margin: 0.25rem;
+}
+
+.child32 {
+   margin: 0.25rem;
+}
+
+.child41 {
+   margin: 0.25rem;
+}
+
+.child42 {
+   margin: 0.25rem;
+}
+
+.child51 {
+   margin: 0.25rem;
+}
+
+.child61 {
+   margin: 0.25rem;
+}
+
+.child62 {
+   margin: 0.25rem;
+}
+
+.child52 {
+   margin: 0.25rem;
+}
+
+.child71 {
+   margin: 0.25rem;
+}
+
+.input-element-modal {
+  display: block;
+  box-sizing: border-box;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 0.5rem;
+  width: 100%;
+  height: 100%;
+  min-height: 2.5rem;
+  flex: 1 1 auto;
+  border: none;
+  background-color: #f5f6f8;
+  border-radius: 6px;
+  outline: none;
+  color: #031b4e;
+  font-family: Inter, Arial, sans-serif;
+  
+  
+}
+.div-element-modal {
+  margin:0.5rem;
+}
+.child712 {
+   margin: 0.25rem;
+}
+
+.child81 {
+   margin: 0.25rem;
+}
+
+.child811 {
+   margin: 0.25rem;
+}
+
+.child812 {
+   margin: 0.25rem;
+}
+
+.parentElement2 {
+  
+}
+
+.divElement11 {
+
+}
+
+.divElement12 {
+
+}
+.div-element-title{
+  margin: 1rem;
+}

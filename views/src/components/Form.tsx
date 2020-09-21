@@ -69,7 +69,10 @@ const Form: FC<{}> = () => {
       <form noValidate autoComplete="off">
         <Row>
           <Col span={12}>
-            <Seller getValues={(type, value) => addFormValues(type, value)} />
+            <Seller
+              showCreateContact={(cond) => handleCreateContact(cond)}
+              getValues={(type, value) => addFormValues(type, value)}
+            />
           </Col>
           <Col span={12}>
             <QuoteNumber

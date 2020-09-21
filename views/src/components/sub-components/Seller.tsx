@@ -8,6 +8,7 @@ import { asyncSelectStyles } from "../styles/Select";
 
 interface SellerProps {
   getValues(type: string, x: any): void;
+  showCreateContact(x: boolean): void;
 }
 
 const colourOptions = [
@@ -27,8 +28,7 @@ const loadOptions = (inputValue: string, callback: (arg0: any) => void) => {
   }, 1000);
 };
 
-const Seller: FC<SellerProps> = ({ getValues }) => {
-
+const Seller: FC<SellerProps> = ({ getValues, showCreateContact }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleInputChange = (newValue: string) => {
@@ -36,7 +36,7 @@ const Seller: FC<SellerProps> = ({ getValues }) => {
     setInputValue(inputValue2);
     return inputValue2;
   };
-  
+
   return (
     <div className="document-layout__section">
       <label className="document-edit-block__label">Seller</label>
@@ -46,7 +46,7 @@ const Seller: FC<SellerProps> = ({ getValues }) => {
           loadOptions={loadOptions}
           defaultOptions
           onChange={(value) => getValues("seller", value)}
-          onInputChange={handleInputChange}
+          onInputChange={() => showCreateContact(true)}
           isClearable={true}
           styles={asyncSelectStyles}
         />

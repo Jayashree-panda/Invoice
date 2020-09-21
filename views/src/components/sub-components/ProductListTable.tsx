@@ -91,7 +91,7 @@ const ProductListTable: FC<{}> = () => {
         >
           {inputList.map((x, i) => {
             return (
-              <Row>
+              <Row key={i}>
                 <Col span={4}>
                   <div className="document-edit-block">
                     <div className="document-edit-block__content document-edit-block--inline">

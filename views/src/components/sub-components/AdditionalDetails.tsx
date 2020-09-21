@@ -102,7 +102,7 @@ const AdditionalDetails: FC<{}> = () => {
           ) : null}
           {inputList.map((x: any, i: any) => {
             return (
-              <div className="document-edit-block">
+              <div className="document-edit-block" key={i}>
                 <div className="document-edit-block__content">
                   <div className="document-edit-block--inline">
                     <div

@@ -26,11 +26,14 @@ const loadOptions = (inputValue: string, callback: (arg0: any) => void) => {
   }, 1000);
 };
 
-const MultipleMethods: FC<{}> = () => {
+interface MultipleMethodsProps {
+  getValues(type: string, x: any): void;
+}
+
+const MultipleMethods: FC<MultipleMethodsProps> = ({getValues}) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleInputChange = (newValue: string) => {
-    console.log(inputValue);
     const inputValue2 = newValue.replace(/\W/g, "");
     setInputValue(inputValue2);
     return inputValue2;
@@ -52,6 +55,7 @@ const MultipleMethods: FC<{}> = () => {
                   defaultOptions
                   onInputChange={handleInputChange}
                   styles={asyncSelectStyles}
+                  onChange={(value) => getValues("methodOfDispatch", value)}
                 />
               </div>
             </div>
@@ -70,6 +74,7 @@ const MultipleMethods: FC<{}> = () => {
                   defaultOptions
                   onInputChange={handleInputChange}
                   styles={asyncSelectStyles}
+                  onChange={(value) => getValues("typeOfShipment", value)}
                 />
               </div>
             </div>
@@ -91,6 +96,7 @@ const MultipleMethods: FC<{}> = () => {
                   defaultOptions
                   onInputChange={handleInputChange}
                   styles={asyncSelectStyles}
+                  onChange={(value) => getValues("portOfLoading", value)}
                 />
               </div>
             </div>
@@ -110,6 +116,7 @@ const MultipleMethods: FC<{}> = () => {
                   defaultOptions
                   onInputChange={handleInputChange}
                   styles={asyncSelectStyles}
+                  onChange={(value) => getValues("portOfDischarge", value)}
                 />
               </div>
             </div>

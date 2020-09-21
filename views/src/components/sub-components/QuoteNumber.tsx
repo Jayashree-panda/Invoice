@@ -8,11 +8,21 @@ import "../styles/form.css";
 import "antd/dist/antd.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-const QuoteNumber: FC<{}> = () => {
+interface QuoteNumberProps {
+  getValues(type: string, x: any): void;
+  // getInputFieldValues(type: string, x: any): void;
+}
+
+const QuoteNumber: FC<QuoteNumberProps> = ({
+  getValues,
+  // getInputFieldValues,
+}) => {
   const [startDate, setStartDate] = useState(new Date());
 
-  const handleChange = (date: Date) => {
-    setStartDate(date);
+  const handleChange = (date: Date | [Date, Date] | null) => {
+    if (date instanceof Date) {
+      setStartDate(date);
+    }
   };
 
   return (
@@ -36,7 +46,8 @@ const QuoteNumber: FC<{}> = () => {
                 <div className="document-edit-block--inline">
                   <Input
                     className="document-edit-block__input document-edit-block__textfield"
-                    // value="QUO-00001"
+                    onChange={(e) => getValues("quoteNumber", e.target.value)}
+                    name="QuoteNumber"
                   />
                 </div>
               </div>
@@ -50,7 +61,8 @@ const QuoteNumber: FC<{}> = () => {
               <DatePicker
                 selected={startDate}
                 dateFormat="dd MMM yyyy"
-                onChange={handleChange}
+                onChange={(valDate) => {getValues("invoiceDate", valDate);
+                handleChange(valDate)}}
                 className="document-edit-block__input document-edit-block__datefield"
               />
             </div>

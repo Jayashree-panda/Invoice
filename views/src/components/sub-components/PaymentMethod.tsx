@@ -1,19 +1,24 @@
 /** React Components */
 import React, { FC, useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
-import { EditorState } from "draft-js";
+import { convertToRaw, EditorState } from "draft-js";
 
 /** Custom Styles */
 import "../styles/form.css";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
-const PaymentMethod: FC<{}> = () => {
+interface PaymentMethodProps {
+  getValues(type: string, x: any): void;
+}
+
+const PaymentMethod: FC<PaymentMethodProps> = ({ getValues }) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const onEditorStateChange = (
-    editorState: React.SetStateAction<EditorState>
+    editorState: any
   ) => {
     setEditorState(editorState);
   };
+
   return (
     <div className="document-layout__section">
       <label className="document-edit-block__label">
@@ -53,6 +58,12 @@ const PaymentMethod: FC<{}> = () => {
             },
           }}
           onEditorStateChange={onEditorStateChange}
+          onChange={() =>
+            getValues(
+              "paymentMethod",
+              convertToRaw(editorState.getCurrentContent())
+            )
+          }
         />
       </div>
     </div>

@@ -1,5 +1,5 @@
 /** React Components */
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import AsyncSelect from "react-select/async";
 
 /** Custom Styles */
@@ -7,7 +7,7 @@ import "../styles/form.css";
 import { asyncSelectStyles } from "../styles/Select";
 
 interface SellerProps {
-  showCreateContact(x: boolean): void;
+  getValues(type: string, x: any): void;
 }
 
 const colourOptions = [
@@ -27,8 +27,16 @@ const loadOptions = (inputValue: string, callback: (arg0: any) => void) => {
   }, 1000);
 };
 
-const Seller: FC<SellerProps> = ({ showCreateContact }) => {
+const Seller: FC<SellerProps> = ({ getValues }) => {
 
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const handleInputChange = (newValue: string) => {
+    const inputValue2 = newValue.replace(/\W/g, "");
+    setInputValue(inputValue2);
+    return inputValue2;
+  };
+  
   return (
     <div className="document-layout__section">
       <label className="document-edit-block__label">Seller</label>
@@ -37,7 +45,8 @@ const Seller: FC<SellerProps> = ({ showCreateContact }) => {
           cacheOptions
           loadOptions={loadOptions}
           defaultOptions
-          onInputChange={() => showCreateContact(true)}
+          onChange={(value) => getValues("seller", value)}
+          onInputChange={handleInputChange}
           isClearable={true}
           styles={asyncSelectStyles}
         />

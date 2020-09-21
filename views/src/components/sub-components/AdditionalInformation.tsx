@@ -1,13 +1,17 @@
 /** React Components */
 import React, { FC, useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
-import { EditorState } from "draft-js";
+import { convertToRaw, EditorState } from "draft-js";
 
 /** Custom Styles */
 import "../styles/form.css";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
-const AdditionalInformation: FC<{}> = () => {
+interface AdditionalInformationProps {
+  getValues(type: string, x: any): void;
+}
+
+const AdditionalInformation: FC<AdditionalInformationProps> = ({ getValues }) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   const onEditorStateChange = (
@@ -56,6 +60,12 @@ const AdditionalInformation: FC<{}> = () => {
             },
           }}
           onEditorStateChange={onEditorStateChange}
+          onChange={() =>
+            getValues(
+              "additionalInformation",
+              convertToRaw(editorState.getCurrentContent())
+            )
+          }
         />
       </div>
     </div>

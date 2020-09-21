@@ -23,7 +23,11 @@ const loadOptions = (inputValue: string, callback: (arg0: any) => void) => {
   }, 1000);
 };
 
-const Buyer: FC<{}> = () => {
+interface BuyerProps {
+  getValues(type: string, x: any): void;
+}
+
+const Buyer: FC<BuyerProps> = ({ getValues }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleInputChange = (newValue: string) => {
@@ -41,6 +45,7 @@ const Buyer: FC<{}> = () => {
           cacheOptions
           loadOptions={loadOptions}
           defaultOptions
+          onChange={(value) => getValues("buyer", value)}
           onInputChange={handleInputChange}
           isClearable={true}
           styles={asyncSelectStyles}

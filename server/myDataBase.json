@@ -1,0 +1,15 @@
+{
+    "test1": {
+        "seller": "yellow",
+        "quoteNumber": "asdfsd",
+        "invoiceDate": "",
+        "buyer": "black",
+        "methodOfDispatch": "",
+        "typeOfShipment": "",
+        "portOfLoading": "",
+        "portOfDischarge": "",
+        "paymentMethod": "",
+        "additionalInformation": "",
+        "key": 1
+    }
+}

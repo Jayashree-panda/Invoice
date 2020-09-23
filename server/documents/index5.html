@@ -1,12 +1,12 @@
-module.exports = ({ firstName, lastName, company, youtubeLink, githubLink }) => {
-
-  const today = new Date();
-return `<!doctype html>
+<!doctype html>
 <html>
 
 <head>
 	<meta charset="utf-8">
 	<title>PDF Result Template</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.6.5/antd.min.css"
+		integrity="sha512-YP6XP/YynNWeZmaIR+YrtoqjiyGMCf0PwtzNaNt56EXySh4lJWcqW1nErpBjP3Io6te5jeqvHkAuRHzbdS4syw=="
+		crossorigin="anonymous" />
 	<style>
 		.invoice-box {
 			max-width: 800px;
@@ -228,11 +228,13 @@ return `<!doctype html>
 			font-weight: 500;
 		}
 
+		/* Select  */
 		.document-edit-block__select {
 			height: 100%;
 			width: 100%;
 		}
 
+		/* Date Picker */
 		.react-datepicker-popper {
 			z-index: 2;
 		}
@@ -247,6 +249,7 @@ return `<!doctype html>
 			border-radius: 6px;
 		}
 
+		/* Text Editor */
 		.document-edit-block__rich-text-editor-wrapper {
 			position: relative;
 			border: none;
@@ -342,6 +345,7 @@ return `<!doctype html>
 			margin: 0px 0 !important;
 		}
 
+		/** Product Table Styling */
 		.document-edit-block__table-button {
 			margin: .4rem 0;
 			width: 100%;
@@ -394,6 +398,7 @@ return `<!doctype html>
 			height: .875rem;
 		}
 
+		/** Delete Icon */
 		.document-edit-block__table-content-row-action {
 			min-height: 2rem;
 			min-width: 2rem;
@@ -416,10 +421,12 @@ return `<!doctype html>
 			margin-right: 0px;
 		}
 
+		/** Percent Icon */
 		.ml--0_5 {
 			margin-left: .5rem;
 		}
 
+		/** Custom Style */
 		textarea:focus {
 			background-color: #fff;
 		}
@@ -471,9 +478,6 @@ return `<!doctype html>
 			margin-bottom: 2rem;
 		}
 	</style>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.6.5/antd.min.css"
-		integrity="sha512-YP6XP/YynNWeZmaIR+YrtoqjiyGMCf0PwtzNaNt56EXySh4lJWcqW1nErpBjP3Io6te5jeqvHkAuRHzbdS4syw=="
-		crossorigin="anonymous" />
 </head>
 
 <body>
@@ -873,5 +877,4 @@ return `<!doctype html>
 	</div>
 </body>
 
-</html>`;
-  };
+</html>

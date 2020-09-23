@@ -20,8 +20,11 @@ import AdditionalDetails from "./sub-components/AdditionalDetails";
 import Heading from "./sub-components/Heading";
 import CreateContact from "./modals/CreateContact";
 import { HOST } from "../utils/utils";
+import { useHistory } from "react-router-dom";
 
 const Form: FC<{}> = () => {
+  const history = useHistory();
+
   const [createContact, setCreateContact] = useState(false);
   const [formState, setFormState] = useState({
     seller: "",
@@ -45,16 +48,25 @@ const Form: FC<{}> = () => {
     setFormState({ ...formState, [type]: value });
   };
 
+  // const submit = () => {
+  //   console.log(" formState v: ", formState);
+  //    axios
+  //      .post(`${HOST}/create-pdf`, formState)
+  //      .then(() => axios.get(`${HOST}/fetch-pdf`, { responseType: "blob" }))
+  //      .then((res) => {
+  //        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+  //        saveAs(pdfBlob, "newPdf.pdf");
+  //      });
+  //   console.log("Submitted");
+  // };
+
   const submit = () => {
     console.log(" formState v: ", formState);
-     axios
-       .post(`${HOST}/create-pdf`, formState)
-       .then(() => axios.get(`${HOST}/fetch-pdf`, { responseType: "blob" }))
-       .then((res) => {
-         const pdfBlob = new Blob([res.data], { type: "application/pdf" });
-         saveAs(pdfBlob, "newPdf.pdf");
-       });
+    axios.post(`${HOST}/save-form`, formState).then((res) => {
+      console.warn(res);
+    });
     console.log("Submitted");
+    history.push("/list");
   };
 
   return (
@@ -71,7 +83,7 @@ const Form: FC<{}> = () => {
           <Col span={12}>
             <Seller
               showCreateContact={(cond) => handleCreateContact(cond)}
-              getValues={(type, value) => addFormValues(type, value)}
+              getValues={(type, value) => addFormValues(type, value.label)}
             />
           </Col>
           <Col span={12}>
@@ -83,7 +95,7 @@ const Form: FC<{}> = () => {
         </Row>
         <Row style={{ height: "9rem" }}>
           <Col span={12}>
-            <Buyer getValues={(type, value) => addFormValues(type, value)} />
+            <Buyer getValues={(type, value) => addFormValues(type, value.label)} />
           </Col>
           <Col span={12}>
             <div className="document-layout__section">

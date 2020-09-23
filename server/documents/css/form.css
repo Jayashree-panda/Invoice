@@ -54,7 +54,7 @@
 .document-layout__section {
   display: flex;
   flex-direction: column;
-  border: 1px solid #e1e4ea;
+  border: 1px solid #000000;
   box-sizing: border-box;
   position: relative;
   margin-bottom: -1px;
@@ -266,7 +266,7 @@
   outline: none;
 }
 
-.document-edit-block__rich-text-editor-editor:hover {
+document-edit-block__rich-text-editor-editor:hover {
   filter: brightness(98%);
 }
 
